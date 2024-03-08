@@ -1,7 +1,9 @@
 name: workflow
 on:
   schedule:
-    - cron: '*/5 * * * *' # Every 5 minutes
+    - cron: '*/5 * * * *' # 每5分钟触发
+  workflow_dispatch:       # 允许手动触发
+
 jobs:
   job:
     runs-on: ubuntu-latest
@@ -14,4 +16,4 @@ jobs:
           schedule-id: 100001
           seat-id: 1_0
           slack-incoming-webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          message: '<@U12345678> 달려달려~'
+          message: '自定义消息'
